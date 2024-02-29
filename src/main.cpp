@@ -156,7 +156,7 @@ long calc_unix_now(long unix_start_time, long offset) {
  * - l'heure, sous forme de cadran
  * et retourne le String.
 */
-const String formatted_display_output(const long now) {
+const String format_display_output(const long now) {
   // Crée un buffer assez large pour contenir la string après formattage. 
   // (49 charactères de capacités + un charactère de fin \0)
   // un buffer de charactères est nécessaire parce que la fonction snprintf ne
@@ -182,7 +182,7 @@ void loop()
 {
   proto.refresh();
   auto now = calc_unix_now(start_time, time_it_took);
-  auto to_print = formatted_display_output(now);
+  auto to_print = format_display_output(now);
   Serial.println(to_print);
   proto.ecran.ecrire(to_print);
 }
